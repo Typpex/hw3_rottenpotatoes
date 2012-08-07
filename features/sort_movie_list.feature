@@ -20,12 +20,16 @@ Background: movies have been added to database
   | Chicken Run             | G      | 21-Jun-2000  |
 
   And I am on the RottenPotatoes home page
+  And I check "ratings_R"
+  And I press "Refresh"
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
-  # your steps here
+  When I follow "Movie Title"
+  Then I should see "Amelie" before "Terminator"
 
 Scenario: sort movies in increasing order of release date
-  When i follow "Release Date"
-  # your steps here
+  When I follow "Release Date"
+  When I follow "Release Date"
+  Then I should see "1989" before "2001"
 
